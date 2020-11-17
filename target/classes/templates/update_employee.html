@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Management System</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+    <h1> Employee Management System </h1>
+    <hr>
+    <h2>Update Employee  </h2>
+
+    <form action="#" th:action="@{/saveEmployee}" th:object ="${employee}"
+          method="POST">
+
+        <!--Add hidden form field to handle update-->
+        <input type="hidden" th:field="*{id}"/>
+
+        <input type="text" th:field = "*{firstName}"
+               class="form-control mb-4 col-4">
+
+        <input type="text" th:field = "*{lastName}"
+               class="form-control mb-4 col-4">
+
+
+        <input pattern="^[a-zA-Z0-9]+@[a-zA-Z-]+\.[a-zA-Z-]{2,4}$"
+                type="text" th:field = "*{email}"
+               class="form-control mb-4 col-4">
+
+
+        <button type="submit" class="btn btn-info col-4">Update Employee</button>
+
+    </form>
+</div>
+
+</body>
+</html>
